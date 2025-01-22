@@ -51,7 +51,7 @@ timestamp=$(date +"%Y%m%d%H%M%S%3N")
 output_file="$input_dir/${filename_noext}_${timestamp}_$2.wav"
 
 # FFmpegを使用してファイルをWAVに変換し、ノイズ除去を適用
-"$ffmpeg" -i "$input_file" $noise_reduction -acodec pcm_s16le -ac 1 -ar 16000 "$output_file"
+"$ffmpeg" -i "$input_file" $noise_reduction -acodec pcm_s16le -ac 2 -ar 8000 "$output_file"
 
 echo "変換完了: $input_file -> $output_file"
 if [ -n "$noise_reduction" ]; then
